@@ -7,7 +7,6 @@ import com.smart.service.BaseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
 public abstract class BaseController<T, ID> {
@@ -20,6 +19,10 @@ public abstract class BaseController<T, ID> {
                              BaseSearchService<T, ? extends SearchDto> searchService) {
         this.baseService = baseService;
         this.searchService = searchService;
+    }
+
+    public BaseController(BaseService<T, ID> baseService) {
+        this.baseService = baseService;
     }
 
     //    @PostMapping("/page")
