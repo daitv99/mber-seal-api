@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /*Yêu cầu con dấu*/
 
@@ -104,7 +105,7 @@ public class SealRequest extends BaseEntity {
     @Column(name = "file_attachment_ids")
     @NotNull(message = "File đính kèm bắt buộc nhập")
     @Convert(converter = SetToStringConverter.class)
-    private List<String> fileAttachmentIds;
+    private Set<String> fileAttachmentIds;
 
     @Transient
     private List<FileAttachment> fileAttachments;
