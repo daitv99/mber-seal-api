@@ -22,6 +22,10 @@ public abstract class BaseController<T, ID> {
         this.searchService = searchService;
     }
 
+    public BaseController(BaseService<T, ID> baseService) {
+        this.baseService = baseService;
+    }
+
     //    @PostMapping("/page")
 //    public <S extends SearchDto> ResponseEntity<Object>  getPage(@Valid @RequestBody S searchDto) {
 //        return ResponseHandler.generateResponse(HttpStatus.OK, "", searchService.page(searchDto));
