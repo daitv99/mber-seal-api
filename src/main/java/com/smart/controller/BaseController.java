@@ -1,8 +1,6 @@
 package com.smart.controller;
 
 import com.smart.dto.handler.ResponseHandler;
-import com.smart.dto.search.SearchDto;
-import com.smart.service.BaseSearchService;
 import com.smart.service.BaseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,24 +12,11 @@ public abstract class BaseController<T, ID> {
 
     protected BaseService<T, ID> baseService;
 
-    protected BaseSearchService<T> searchService;
-
-    protected BaseController(BaseService<T, ID> baseService,
-                             BaseSearchService<T> searchService) {
-        this.baseService = baseService;
-        this.searchService = searchService;
-    }
-
     public BaseController(BaseService<T, ID> baseService) {
         this.baseService = baseService;
     }
 
-    @PostMapping("/page")
-    public <S extends SearchDto> ResponseEntity<Object> getPage(@Valid @RequestBody S searchDto) {
-        return ResponseHandler.generateResponse(HttpStatus.OK, "", searchService.page(searchDto));
-    }
-
-     //    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    //    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/get-all")
     public ResponseEntity<Object> getAll() {
         return ResponseHandler.generateResponse(HttpStatus.OK, "", baseService.getAll());
