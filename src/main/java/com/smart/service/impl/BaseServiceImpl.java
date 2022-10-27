@@ -59,16 +59,6 @@ public class BaseServiceImpl<T extends BaseEntity, ID> implements BaseService<T,
         }
     }
 
-    @Override
-    public boolean deletedByIdPermanently(ID id) {
-        try {
-            repository.deleteById(id);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
     public static Long getCurrentUserId() {
         EmployeeDto currentUser = null;
 //        try {

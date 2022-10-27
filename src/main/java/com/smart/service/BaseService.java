@@ -11,6 +11,4 @@ public interface BaseService<T, ID> {
     T creatOrUpdate(ID id, T t);
 
     boolean deleteById(ID id);
-
-    boolean deletedByIdPermanently(ID id);
 }
